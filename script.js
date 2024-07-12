@@ -3,11 +3,6 @@
 // Print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both 3 and 5.
 // Code:
 
-// 1. first we create the fizzBuzz function
-// 2. then we apply loop function till 100...
-// 3. then we apply 'if else if else' contion within for funtion beacuse we need othes number which devide by 3 and 5.
-// number is divisible by both 3 and 5, it prints "FizzBuzz".
-
 
 function fizzBuzz() {
     for (let i = 1; i <= 100; i++) {
@@ -62,8 +57,8 @@ function calculateExpression(expression) {
 }
 
 // Example usage:
-// console.log(calculateExpression("10 + 20 - 5 + 3")); // Output: 28
-// console.log(calculateExpression("100 - 30 + 50 - 10")); // Output: 110
+console.log(calculateExpression("10 + 20 - 5 + 3")); // Output: 28
+console.log(calculateExpression("100 - 30 + 50 - 10")); // Output: 110
 
 
 // 3. Flatten a Nested Array Plan:
@@ -121,7 +116,7 @@ function generateFibonacci(n) {
     return fib.slice(0, n);
 }
 
-console.log(generateFibonacci(5));
+console.log(generateFibonacci(10));
 
 // 8. Implement a Simple HashMap
 
@@ -148,9 +143,9 @@ class HashMap {
 
 const myHashMap = new HashMap();
 myHashMap.put("name", "John");
-// console.log(myHashMap.get("name"));
+console.log(myHashMap.get("name"));
 myHashMap.remove("name");
-// console.log(myHashMap.get("name"));
+console.log(myHashMap.get("name"));
 
 
 // 9. Filter Out Even Numbers from an Array
@@ -160,7 +155,7 @@ function filterEvenNumbers(array) {
     return array.filter(num => num % 2 !== 0);
 }
 
-// console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
+console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
 
 // 10. Convert String to Title Case
 // Split the string into words, capitalize each word, and join them back.
@@ -169,4 +164,4 @@ function toTitleCase(str) {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
-// console.log(toTitleCase("this is a title case string"));
+console.log(toTitleCase("this is a title case string"));
