@@ -6,16 +6,15 @@
 // 1. first we create the fizzBuzz function
 // 2. then we apply loop function till 100...
 // 3. then we apply 'if else if else' contion within for funtion beacuse we need othes number which devide by 3 and 5.
+// number is divisible by both 3 and 5, it prints "FizzBuzz".
+
 
 function fizzBuzz() {
-    // we create a loop other run till 100
     for (let i = 1; i <= 100; i++) {
-        // then we create if condition .. if our num devide by 3 and 5 ... print "FizzBuzz"
-        if (i % 3 === 0 && i % 5 === 0) {
+        if (i % 15 === 0) {
             console.log("FizzBuzz");
-        } else if (i % 3 === 0) { 
+        } else if (i % 3 === 0) {
             console.log("Fizz");
-            // if your 1st condition doesn't ture, we  going 
         } else if (i % 5 === 0) {
             console.log("Buzz");
         } else {
@@ -26,25 +25,59 @@ function fizzBuzz() {
 
 fizzBuzz();
 
-// 2. Simple Arithmetic Expression Evaluator Plan:
-
+// 2. Simple Arithmetic Expression Evaluator:
 // Use the eval function to evaluate the expression.
 
-function evaluateExpression(expression) {
-    return eval(expression);
+/**
+ * Calculates the result of a simple arithmetic expression with addition and subtraction.
+ * @param {string} expression - The arithmetic expression to calculate.
+ * @returns {number} - The result of the calculation.
+ */
+function calculateExpression(expression) {
+    // Use a regular expression to find all numbers and operators in the input string.
+    const tokens = expression.match(/[\d.]+|[-+]/g);
+    
+    // Initialize the running total and current operator.
+    let total = 0;
+    let currentOperator = '+';
+    
+    // Loop through the array of tokens.
+    for (let token of tokens) {
+        if (!isNaN(token)) {
+            // If the token is a number, convert it to a number type and apply the current operator.
+            let num = parseFloat(token);
+            if (currentOperator === '+') {
+                total += num;
+            } else if (currentOperator === '-') {
+                total -= num;
+            }
+        } else {
+            // If the token is an operator, update the current operator.
+            currentOperator = token;
+        }
+    }
+    
+    // Return the final result.
+    return total;
 }
 
-console.log(evaluateExpression("3+5-2"));
+// Example usage:
+// console.log(calculateExpression("10 + 20 - 5 + 3")); // Output: 28
+// console.log(calculateExpression("100 - 30 + 50 - 10")); // Output: 110
+
 
 // 3. Flatten a Nested Array Plan:
 // Use recursion to flatten the array.
 
-function flattenArray(nestedArray) {
-    return nestedArray.reduce((acc, val) => 
+function flattenArray(nestedArray) {  
+    return nestedArray.reduce((acc, val) =>
         Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val), []);
 }
 
-console.log(flattenArray([1, [2, [3, [4]], 5]]));
+
+console.log(flattenArray([1, [2, [3, [4, 8, 9]], 5]]));
+
+  
 
 // 4. Check if Two Strings are Anagrams :
 
@@ -66,7 +99,7 @@ function removeDuplicates(array) {
     return [...new Set(array)];
 }
 
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5, 5]));
 
 // 6. Capitalize the First Letter of Each Word
 // Split the string into words, capitalize each word, and join them back.
@@ -88,7 +121,7 @@ function generateFibonacci(n) {
     return fib.slice(0, n);
 }
 
-console.log(generateFibonacci(10));
+console.log(generateFibonacci(5));
 
 // 8. Implement a Simple HashMap
 
@@ -115,9 +148,9 @@ class HashMap {
 
 const myHashMap = new HashMap();
 myHashMap.put("name", "John");
-console.log(myHashMap.get("name"));
+// console.log(myHashMap.get("name"));
 myHashMap.remove("name");
-console.log(myHashMap.get("name"));
+// console.log(myHashMap.get("name"));
 
 
 // 9. Filter Out Even Numbers from an Array
@@ -127,7 +160,7 @@ function filterEvenNumbers(array) {
     return array.filter(num => num % 2 !== 0);
 }
 
-console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
+// console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
 
 // 10. Convert String to Title Case
 // Split the string into words, capitalize each word, and join them back.
@@ -136,4 +169,4 @@ function toTitleCase(str) {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
-console.log(toTitleCase("this is a title case string"));
+// console.log(toTitleCase("this is a title case string"));
